@@ -35,7 +35,9 @@ def rho(h0):
         iterations += 1
         if slow == fast:
             break
-    
+
+
+    #Fazemos estes passos para encontrar os valores exatos que colidem
     # Fase 2: encontrar início do ciclo
     slow = h0
     prev = None
