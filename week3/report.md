@@ -80,9 +80,11 @@ Seja Cₘ o bloco ao qual pertence o bit perdido.
 
 ### 3.4. Encriptaste uma mensagem muito grande com AES-CBC e descobres que o primeiro byte estava errado ("hello" em vez de "Hello"). Podes modificar o ciphertext existente ou tens de re-encriptar tudo?
 
-Não é necessário re-encriptar tudo. Apenas os blocos a partir do bloco modificado (inclusive) precisam de ser re-encriptados.
+No AES-CBC precisamos de re-encriptar tudo a partir do bloco que é modificado (inclusive):
 
-No CBC, `Cₙ = E(K, Pₙ ⊕ Cₙ₋₁)`. Alterar Pₘ implica alterar Cₘ, que por sua vez afeta Cₘ₊₁, e assim sucessivamente até ao fim. Os blocos anteriores a Cₘ não são afetados.
+No CBC, `Cₙ = E(K, Pₙ ⊕ Cₙ₋₁)`. Alterar Pₘ implica alterar Cₘ, que por sua vez afeta Cₘ₊₁, e assim sucessivamente até ao fim. Apenas os blocos anteriores a Cₘ não são afetados.
+
+Neste caso em concreto em que alteramos o primeiro byte, precisamos de re-encriptar tudo, porque é alterado o primeiro bloco.
 
 ## 4. Repetir o exercício com modo CTR. Quais são as diferenças?
 
