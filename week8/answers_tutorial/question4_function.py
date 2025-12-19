@@ -31,9 +31,11 @@ def witness(n: int, a: int) -> bool:
     if x == 1 or x == n - 1:
         return False
     
+    minus_one = sage.mod(-1, n)
+    
     for i in range(1, k + 1):
         x = sage.power_mod(x, 2, n)
-        if x == n - 1:
+        if x == minus_one:
             return False
         
     return True
