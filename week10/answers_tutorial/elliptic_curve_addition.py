@@ -10,7 +10,7 @@ def elliptic_curve_addition(elliptic_curve, p, q) -> tuple[object, object]:
     if p == O:
         return q
     
-    if p == O:
+    if q == O:
         return p
     
     if p[0] == q[0] and p[1] == -q[1]:
